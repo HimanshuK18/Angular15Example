@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint --force",
     "e2e": "ng e2e",
-    "update": "ng update @angular/core@13 @angular/cli@1313",
+    "update": "ng update @angular/core@15 @angular/cli@15",
     "upgardeLint": "ng add @angular-eslint/schematics",
     "updatelint": "ng g @angular-eslint/schematics:convert-tslint-to-eslint ang2-conduit"
   },
