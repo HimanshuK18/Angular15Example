@@ -121,7 +121,6 @@
       }
     }
   },
-  "defaultProject": "ang2-conduit",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
@@ -130,5 +129,8 @@
     "@schematics/angular:directive": {
       "prefix": "app"
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
