@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules, ExtraOptions } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
   {
     path: 'settings',
     loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)
+  },
+  {
+    path: 'template',
+    loadChildren: () => import('./template-form/template-form.module').then(m => m.TemplateFormModule)
   },
   {
     path: 'profile',

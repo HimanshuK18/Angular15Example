@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { Component, OnInit, OnDestroy, OnChanges, SimpleChanges } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { User, UserService } from '../core';
@@ -8,16 +8,16 @@ import { User, UserService } from '../core';
   selector: 'app-settings-page',
   templateUrl: './settings.component.html'
 })
-export class SettingsComponent implements OnInit {
+export class SettingsComponent implements OnInit, OnDestroy, OnChanges {
   user: User = {} as User;
-  settingsForm: UntypedFormGroup;
+  settingsForm: FormGroup;
   errors: Object = {};
   isSubmitting = false;
 
   constructor(
     private router: Router,
     private userService: UserService,
-    private fb: UntypedFormBuilder
+    private fb: FormBuilder
   ) {
     // create form group using the form builder
     this.settingsForm = this.fb.group({
@@ -28,7 +28,7 @@ export class SettingsComponent implements OnInit {
       password: ''
     });
     // Optional: subscribe to changes on the form
-    // this.settingsForm.valueChanges.subscribe(values => this.updateUser(values));
+    this.settingsForm.valueChanges.subscribe(values => this.updateUser(values));
   }
 
   ngOnInit() {
@@ -50,18 +50,25 @@ export class SettingsComponent implements OnInit {
     this.updateUser(this.settingsForm.value);
 
     this.userService
-    .update(this.user)
-    .subscribe(
-      updatedUser => this.router.navigateByUrl('/profile/' + updatedUser.username),
-      err => {
-        this.errors = err;
-        this.isSubmitting = false;
-      }
-    );
+      .update(this.user)
+      .subscribe(
+        updatedUser => this.router.navigateByUrl('/profile/' + updatedUser.username),
+        err => {
+          this.errors = err;
+          this.isSubmitting = false;
+        }
+      );
   }
 
   updateUser(values: Object) {
     Object.assign(this.user, values);
+  }
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('ngOnChanges');
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy');
   }
 
 }
