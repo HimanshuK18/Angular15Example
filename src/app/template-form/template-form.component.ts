@@ -8,7 +8,7 @@ import { User} from './user';
 })
 export class TemplateFormComponent implements OnInit {
   powers = ['Really Smart', 'Super Flexible', 'Super Hot', 'Weather Changer'];
-  model = new User(18, 'Dr. IQ', this.powers[0], 'Chuck Overstreet');
+  model = new User(18, '', '', '');
   submitted = false;
 
   constructor() {}

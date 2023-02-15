@@ -6,10 +6,10 @@
   <div class="info">
     <a class="author"
       [routerLink]="['/profile', article.author.username]">
-      {{ article.author.username }}
+      {{ article.author.username | myCustomPipe }}
     </a>
     <span class="date">
-      {{ article.createdAt | date: 'longDate' }}
+      {{ article.createdAt | date: 'longDate' | uppercase }}
     </span>
   </div>
 
