@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./template-form/template-form.module').then(m => m.TemplateFormModule)
   },
   {
+    path: 'contect',
+    loadChildren: () => import('../app/ng-content/ng-content.module').then(m => m.NgContentModule)
+  },
+  {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
   },

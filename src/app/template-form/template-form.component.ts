@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from './user';
 import { CatService } from '../../service/catService';
-import { map, filter, tap, first } from 'rxjs/operators';
 
 type Article = {
   articles: any[],

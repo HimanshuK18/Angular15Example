@@ -5,6 +5,7 @@ import { AuthComponent } from './auth.component';
 import { NoAuthGuard } from './no-auth-guard.service';
 import { SharedModule } from '../shared';
 import { AuthRoutingModule } from './auth-routing.module';
+import { NgContentComponent } from '../ng-content/ng-content.component';
 
 @NgModule({
   imports: [
