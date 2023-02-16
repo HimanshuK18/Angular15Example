@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TemplateFormComponent } from './template-form.component';
+import { CommonModule } from '@angular/common'
 
 const routes: Routes = [
   {
@@ -10,7 +11,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forChild(routes), CommonModule],
+  exports: [CommonModule]
 })
 export class TemplateFormComponentRoutingModule {}
